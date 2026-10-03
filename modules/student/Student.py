@@ -35,11 +35,47 @@ class studentClass:
         self.date_of_birth = date_of_birth
         self.gender = gender
         self.mobile_number = mobile_number
-        if len(self.mobile_number) != 10:
-            raise ValueError("Mobile number must be 10 digits long.")
-        return
+
         self.preferred_language = preferred_language
         self.school_college_name = school_college_name
         self.class_grade = class_grade
         self.board_curriculum = board_curriculum
         self.academic_year = academic_year
+
+    def saveToDB(self):
+        import sqlite3
+        connetion = sqlite3.connect("tution.db")
+        cursor = connetion.cursor()
+        cursor.execute("""
+                INSERT INTO students (
+                full_name,
+                age,
+                mobile_number,
+                email_address,
+                password,
+            dob,
+            gender,
+            preferred_language,
+            school_college_name,
+            class_grade,
+            borad_curriculum,
+            acaemic_year
+            ) values (?,?,?,?,?,?,?,?,?,?,?)
+            """,(
+                self.full_name,
+                self.age,
+                self.mobile_number,
+                self.email_address,
+                self.password,
+                self.date_of_birth,
+                self.gender,
+                self.preferred_language,
+                self.school_college_name,
+                self.class_grade,
+                self.board_curriculum,
+                self.academic_year
+                ))
+
+        # Save changes and close connection
+        connetion.commit()
+        connetion.close()

@@ -23,3 +23,4 @@ board_curriculum = input("Enter your board/curriculum : ")
 academic_year = input("Enter your academic year : ")    
 
 s1.setBasicDetails(full_name, date_of_birth, gender, mobile_number, preferred_language, school_college_name, class_grade, board_curriculum, academic_year)
+s1.saveToDB()
