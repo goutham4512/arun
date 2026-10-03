@@ -35,26 +35,8 @@ cursor.execute("""
         area_topics_needing_help TEXT
     )
 """)
-cursor.execute("""
-insert into students values(
-   003,
-  'goutham surendran kp',
-   20,
-  'MALE',
-  9400698312,           
-  'goutham.gmail.com',
-  'english',
-  'ilahia arts and science',
-  'A',
-  'BCA',
-  2025-2029,
-  'c,python,java',
-  'tution centerl',
-  'c,python,java',
-  'beginner,beginner,beginner',
-  'non'
-  )
-""")
+
+
 # Save changes       
 conn.commit()
 
